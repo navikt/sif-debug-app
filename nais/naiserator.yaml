@@ -22,6 +22,11 @@ spec:
     requests:
       cpu: {{resources.requests.cpu}}
       memory: {{resources.requests.memory}}
+  accessPolicy:
+    outbound:
+      rules:
+        - application: sif-karapace
+
   env:
     - name: BIGQUERY_NAME
       value: mybqdataset
