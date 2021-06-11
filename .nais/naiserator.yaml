@@ -1,10 +1,10 @@
 apiVersion: "nais.io/v1alpha1"
 kind: "Application"
 metadata:
-  name: testapp
-  namespace: aura
+  name: sif-debug-app
+  namespace: dusseldorf
   labels:
-    team: aura
+    team: dusseldorf
 spec:
   image: docker.pkg.github.com/nais/testapp/testapp:latest
   port: 8080
@@ -15,10 +15,6 @@ spec:
   replicas:
     min: 2
     max: 4
-  ingresses: 
-{{#each ingresses}}
-    - {{this}}
-{{/each}}
   resources:
     limits:
       cpu: {{resources.limits.cpu}}

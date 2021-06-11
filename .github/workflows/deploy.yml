@@ -1,0 +1,16 @@
+name: "Deploy sif-debug-app"
+on:
+  push:
+    branches: main
+jobs:
+  deploy-gcp:
+    name: "Deploy sif-debug-app"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: "actions/checkout@v2"
+      - uses: nais/deploy/actions/deploy@v1
+        env:
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          CLUSTER: dev-gcp
+          RESOURCE: nais/naiserator.yaml
+          VARS: nais/dev-gcp.json
